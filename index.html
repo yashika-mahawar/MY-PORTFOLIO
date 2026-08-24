@@ -1,10 +1,15 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yashika Portfolio</title>
+
+    <title>Yashika Mahawar | Frontend Developer Portfolio</title>
+
+    <meta name="description"
+        content="Yashika Mahawar - BCA Cyber Security student and Frontend Developer Portfolio">
 
     <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
 
@@ -13,6 +18,10 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
@@ -24,12 +33,13 @@
             background-attachment: fixed;
             overflow: hidden;
             font-family: Arial, sans-serif;
-            cursor: auto;
             color: #f5f5f5;
             transition: background 0.8s ease, filter 0.8s ease;
         }
 
-        /* ================= CURTAIN ================= */
+        /* =========================================================
+           CURTAIN
+        ========================================================= */
 
         .curtain-container {
             position: fixed;
@@ -43,7 +53,8 @@
         .curtain {
             width: 50%;
             height: 100%;
-            background: linear-gradient(to bottom, #300000, #8b0000, #300000);
+            background:
+                linear-gradient(to bottom, #300000, #8b0000, #300000);
             box-shadow: 0 0 40px rgba(0, 0, 0, 0.9);
             transition: 1.8s ease-in-out;
         }
@@ -56,12 +67,13 @@
             transform: translateX(100%);
         }
 
-        /* After curtain opens, allow clicking the page content underneath. */
         .curtain-container.open {
             pointer-events: none;
         }
 
-        /* ================= WELCOME TEXT ================= */
+        /* =========================================================
+           WELCOME SCREEN
+        ========================================================= */
 
         .welcome-text {
             position: fixed;
@@ -71,19 +83,27 @@
             text-align: center;
             z-index: 2000;
             font-family: 'Creepster', cursive;
-            color: black;
+            color: white;
             text-shadow: 0 0 20px red, 0 0 40px darkred;
-            padding: 20px 30px;
-            background: rgba(0, 0, 0, 0.7);
+            padding: 25px 35px;
+            background: rgba(0, 0, 0, 0.8);
             border-radius: 15px;
             border: 2px solid rgba(255, 0, 60, 0.7);
             backdrop-filter: blur(4px);
+            width: min(90%, 650px);
         }
 
         .welcome-text h1 {
-            font-size: 36px;
+            font-size: clamp(28px, 5vw, 42px);
             letter-spacing: 4px;
             margin-bottom: 15px;
+        }
+
+        .welcome-text p {
+            font-family: Arial, sans-serif;
+            color: #ddd;
+            margin-bottom: 10px;
+            line-height: 1.6;
         }
 
         .enter-btn {
@@ -105,13 +125,14 @@
             box-shadow: 0 0 25px red;
         }
 
-        /* ================= MAIN PORTFOLIO ================= */
+        /* =========================================================
+           MAIN
+        ========================================================= */
 
         .main-content {
             opacity: 0;
             transition: 2s;
             padding: 50px 8vw;
-            font-family: Arial, sans-serif;
             position: relative;
             z-index: 10;
         }
@@ -120,37 +141,44 @@
             opacity: 1;
         }
 
+        body.opened {
+            overflow: auto;
+        }
+
         .section {
-            margin-bottom: 60px;
+            margin-bottom: 80px;
             min-height: auto;
             display: flex;
             flex-direction: column;
             justify-content: center;
-            scroll-snap-align: start;
+            scroll-margin-top: 30px;
         }
 
         .section h2 {
             color: #ff003c;
-            margin-bottom: 20px;
+            margin-bottom: 30px;
             text-shadow: 0 0 10px red;
             font-family: 'Creepster', cursive;
             letter-spacing: 4px;
-            font-size: 32px;
+            font-size: 36px;
+            text-align: center;
         }
 
         .section p {
             line-height: 1.8;
         }
 
-        /* =========== ORIGIN (ABOUT) SECTION =========== */
+        /* =========================================================
+           ABOUT
+        ========================================================= */
 
         .origin-section h1 {
             font-family: 'Creepster', cursive;
-            font-size: 40px;
+            font-size: clamp(35px, 5vw, 52px);
             letter-spacing: 5px;
             color: white;
             text-shadow: 0 0 15px red;
-            margin-bottom: 30px;
+            margin-bottom: 35px;
             text-align: center;
         }
 
@@ -158,7 +186,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 40px;
+            gap: 45px;
             flex-wrap: wrap;
             flex-direction: row-reverse;
         }
@@ -180,10 +208,10 @@
         }
 
         .origin-text {
-            max-width: 600px;
-            font-size: 18px;
+            max-width: 650px;
+            font-size: 17px;
             line-height: 1.8;
-            padding: 25px;
+            padding: 28px;
             background: rgba(17, 18, 43, 0.95);
             border-radius: 15px;
             border-left: 6px solid #ff003c;
@@ -192,21 +220,20 @@
 
         .origin-text a {
             color: #ff6688;
-            text-decoration: underline;
+            text-decoration: none;
             cursor: pointer;
-             word-break: break-word;
+            word-break: break-word;
             overflow-wrap: break-word;
-            
         }
 
         .origin-text a:hover {
-            color: #ffffff;
+            color: white;
             text-shadow: 0 0 8px #ff003c;
         }
 
         .intro-link {
             display: inline-block;
-            padding: 6px 10px;
+            padding: 5px 10px;
             text-decoration: none;
             background: rgba(0, 0, 0, 0.25);
             margin-top: 6px;
@@ -216,10 +243,73 @@
         .intro-link:hover {
             background: rgba(255, 0, 60, 0.18);
             box-shadow: 0 0 18px rgba(255, 0, 60, 0.35);
-            text-shadow: 0 0 8px #ff003c;
         }
 
-        /* ================= EDUCATION TABLE ================= */
+        /* =========================================================
+           COMMON CARDS
+        ========================================================= */
+
+        .content-card {
+            max-width: 1000px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .info-card {
+            background: rgba(17, 18, 43, 0.95);
+            border-left: 6px solid #ff003c;
+            border-radius: 15px;
+            padding: 28px;
+            box-shadow: 0 0 25px rgba(255, 0, 60, 0.35);
+            margin-bottom: 20px;
+        }
+
+        .info-card h3 {
+            color: #ff003c;
+            margin-bottom: 8px;
+            font-size: 21px;
+        }
+
+        .info-card h3 span {
+            color: white;
+            font-weight: normal;
+            font-size: 15px;
+        }
+
+        .info-card p {
+            color: #ddd;
+        }
+
+        .date {
+            color: #ff6688;
+            font-size: 14px;
+        }
+
+        .live-btn {
+            display: inline-block;
+            margin-top: 12px;
+            padding: 7px 15px;
+            border: 1px solid #ff003c;
+            color: #ff6688 !important;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        .live-btn:hover {
+            background: #ff003c;
+            color: black !important;
+            box-shadow: 0 0 15px red;
+        }
+
+        /* =========================================================
+           EDUCATION
+        ========================================================= */
+
+        .edu-table-wrapper {
+            overflow-x: auto;
+            width: 100%;
+        }
+
         .edu-table {
             width: 100%;
             border-collapse: separate;
@@ -230,19 +320,18 @@
             border: 1px solid rgba(255, 0, 60, 0.45);
             border-radius: 12px;
             overflow: hidden;
+            min-width: 700px;
         }
 
-        .edu-table thead th {
+        .edu-table th {
             background: rgba(255, 0, 60, 0.16);
             border-bottom: 2px solid #ff003c;
-            padding: 10px 8px;
+            padding: 14px 10px;
             text-align: left;
-            font-weight: bold;
-            white-space: nowrap;
         }
 
-        .edu-table tbody td {
-            padding: 10px 8px;
+        .edu-table td {
+            padding: 13px 10px;
             border-bottom: 1px solid rgba(255, 255, 255, 0.08);
         }
 
@@ -254,60 +343,325 @@
             border-bottom: none;
         }
 
-        /* ===== SUPERPOWERS GRID ===== */
+        /* =========================================================
+           INTERNSHIP
+        ========================================================= */
 
-        .super-section h2 {
-            font-size: 32px;
-            margin-bottom: 30px;
-            text-align: center;
-            color: white;
+        .internship-card {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: rgba(10, 10, 30, 0.96);
+            border: 2px solid #ff003c;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 0 30px rgba(255, 0, 60, 0.35);
         }
 
-        .super-grid {
+        .internship-header {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .internship-header h3 {
+            color: #ff003c;
+            font-size: 25px;
+        }
+
+        .internship-header h4 {
+            margin-top: 7px;
+            color: white;
+            font-size: 18px;
+        }
+
+        .internship-header .date {
+            font-size: 16px;
+        }
+
+        .internship-card ul {
+            margin-left: 20px;
+        }
+
+        .internship-card li {
+            margin-bottom: 12px;
+            line-height: 1.7;
+            color: #ddd;
+        }
+
+        /* =========================================================
+           PROJECTS GRID
+        ========================================================= */
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            max-width: 1100px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .project-card {
+            background: rgba(10, 10, 30, 0.96);
+            border: 2px solid #ff003c;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 0 20px rgba(255, 0, 60, 0.25);
+            transition: 0.35s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-card:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 0 35px rgba(255, 0, 60, 0.65);
+        }
+
+        .project-card h3 {
+            color: #ff003c;
+            margin-bottom: 10px;
+            font-size: 21px;
+        }
+
+        .project-tech {
+            color: #ff6688;
+            font-size: 14px;
+            margin-bottom: 13px;
+            font-weight: bold;
+        }
+
+        .project-card p {
+            color: #ddd;
+            font-size: 15px;
+            line-height: 1.7;
+            flex-grow: 1;
+        }
+
+        /* =========================================================
+           SKILLS
+        ========================================================= */
+
+        .skill-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 25px;
-            max-width: 900px;
-            margin: 0 auto;
+            gap: 20px;
+            max-width: 1000px;
+            margin: auto;
         }
 
-        .super-card {
+        .skill-card {
+            background: rgba(10, 10, 30, 0.96);
+            border: 2px solid #ff003c;
+            border-radius: 12px;
+            padding: 25px 20px;
+            text-align: center;
+            box-shadow: 0 0 20px rgba(255, 0, 60, 0.25);
+            transition: 0.3s;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 30px red;
+        }
+
+        .skill-card h3 {
+            color: #ff003c;
+            margin-bottom: 10px;
+        }
+
+        .skill-card p {
+            color: #ddd;
+            font-size: 15px;
+        }
+
+        /* =========================================================
+           CERTIFICATIONS
+        ========================================================= */
+
+        .certificate-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+            gap: 20px;
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        .certificate-card {
             background: rgba(10, 10, 30, 0.95);
-            border: 3px solid #ff003c;
-            color: white;
-            font-size: 20px;
-            font-weight: bold;
-            min-height: 140px;
-            padding: 15px;
+            border: 2px solid #ff003c;
+            border-radius: 15px;
+            padding: 25px;
+            min-height: 130px;
             display: flex;
-            align-items: center;
+            flex-direction: column;
             justify-content: center;
             text-align: center;
-            border-radius: 15px;
-            box-shadow: 0 0 25px rgba(255, 0, 60, 0.4);
+            box-shadow: 0 0 20px rgba(255, 0, 60, 0.3);
             transition: 0.3s;
+        }
+
+        .certificate-card:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 0 35px red;
+        }
+
+        .certificate-card h3 {
+            color: #ff003c;
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+
+        .certificate-card p {
+            color: #ccc;
+            font-size: 14px;
+        }
+
+        /* =========================================================
+           TCS SCORE
+        ========================================================= */
+
+        .score-card {
+            max-width: 850px;
+            margin: auto;
+            padding: 30px;
+            text-align: center;
+            background: rgba(10, 10, 30, 0.96);
+            border: 2px solid #ff003c;
+            border-radius: 15px;
+            box-shadow: 0 0 30px rgba(255, 0, 60, 0.35);
+        }
+
+        .score-card h3 {
+            color: #ff003c;
+            font-size: 25px;
+            margin-bottom: 20px;
+        }
+
+        .score-main {
+            font-size: 35px;
+            color: white;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-shadow: 0 0 12px red;
+        }
+
+        .score-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+
+        .score-item {
+            padding: 18px 10px;
+            border: 1px solid rgba(255, 0, 60, 0.6);
+            border-radius: 10px;
+        }
+
+        .score-item strong {
+            display: block;
+            color: #ff003c;
+            font-size: 20px;
+            margin-bottom: 5px;
+        }
+
+        .score-item span {
+            color: #ccc;
+            font-size: 13px;
+        }
+
+        /* =========================================================
+           COURSES
+        ========================================================= */
+
+        .course-list {
+            max-width: 900px;
+            margin: auto;
+            background: rgba(17, 18, 43, 0.95);
+            border-left: 6px solid #ff003c;
+            border-radius: 15px;
+            padding: 30px 45px;
+            box-shadow: 0 0 25px rgba(255, 0, 60, 0.35);
+        }
+
+        .course-list li {
+            margin-bottom: 12px;
+            color: #ddd;
+            line-height: 1.6;
+        }
+
+        /* =========================================================
+           EXTRA CURRICULAR
+        ========================================================= */
+
+        .activity-grid {
+            max-width: 900px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+        }
+
+        .activity-card {
+            padding: 25px;
+            text-align: center;
+            background: rgba(10, 10, 30, 0.95);
+            border: 2px solid #ff003c;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(255, 0, 60, 0.25);
+        }
+
+        .activity-card:hover {
+            box-shadow: 0 0 30px red;
+        }
+
+        .activity-card h3 {
+            color: #ff003c;
+            margin-bottom: 10px;
+        }
+
+        /* =========================================================
+           CONTACT
+        ========================================================= */
+
+        .contact-grid {
+            max-width: 900px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+        }
+
+        .contact-card {
+            background: rgba(10, 10, 30, 0.96);
+            border: 2px solid #ff003c;
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 0 20px rgba(255, 0, 60, 0.3);
+            transition: 0.3s;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 35px red;
+        }
+
+        .contact-card a {
+            color: #ff6688;
+            text-decoration: none;
             word-break: break-word;
         }
 
-        .super-card:hover {
-            transform: translateY(-5px) scale(1.03);
-            box-shadow: 0 0 40px red;
+        .contact-card a:hover {
+            color: white;
+            text-shadow: 0 0 8px red;
         }
 
-        /* Scroll enabled after opening */
-        body.opened {
-            overflow: auto;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        .main-content {
-            scroll-snap-type: y mandatory;
-        }
-
-        /* ========= NAV BUTTONS ========= */
+        /* =========================================================
+           NAV BUTTONS
+        ========================================================= */
 
         .nav-buttons {
             position: fixed;
@@ -320,13 +674,15 @@
         }
 
         .nav-buttons button {
-            padding: 8px 10px;
-            font-size: 18px;
+            width: 45px;
+            height: 45px;
+            font-size: 20px;
             background: black;
             color: #ff003c;
             border: 2px solid #ff003c;
             cursor: pointer;
             transition: 0.3s;
+            border-radius: 5px;
         }
 
         .nav-buttons button:hover {
@@ -334,7 +690,9 @@
             color: black;
         }
 
-        /* ====== UPSIDE DOWN THEME ====== */
+        /* =========================================================
+           UPSIDE DOWN
+        ========================================================= */
 
         body.upside {
             background:
@@ -343,7 +701,6 @@
             filter: hue-rotate(210deg) saturate(1.4) contrast(1.2) brightness(0.8);
         }
 
-        /* content flip (canvases stable) */
         body.upside #main,
         body.upside #curtain,
         body.upside #welcome,
@@ -354,21 +711,26 @@
             transform: rotate(180deg);
         }
 
-        /* subtle red mist overlay when upside down */
         body.upside::after {
             content: "";
             position: fixed;
             inset: 0;
             background:
-                radial-gradient(circle at 20% 10%, rgba(255, 0, 80, 0.25), transparent 60%),
-                radial-gradient(circle at 80% 90%, rgba(255, 0, 40, 0.2), transparent 55%);
+                radial-gradient(circle at 20% 10%,
+                    rgba(255, 0, 80, 0.25),
+                    transparent 60%),
+                radial-gradient(circle at 80% 90%,
+                    rgba(255, 0, 40, 0.2),
+                    transparent 55%);
             mix-blend-mode: screen;
             opacity: 0.6;
             pointer-events: none;
             z-index: 0;
         }
 
-        /* ========== THUNDER / LIGHTNING OVERLAY ========== */
+        /* =========================================================
+           THUNDER
+        ========================================================= */
 
         #thunder-overlay {
             position: fixed;
@@ -376,8 +738,12 @@
             pointer-events: none;
             z-index: 3500;
             background:
-                radial-gradient(circle at 30% 10%, rgba(255, 255, 255, 0.9), transparent 55%),
-                radial-gradient(circle at 70% 60%, rgba(150, 210, 255, 0.7), transparent 60%);
+                radial-gradient(circle at 30% 10%,
+                    rgba(255, 255, 255, 0.9),
+                    transparent 55%),
+                radial-gradient(circle at 70% 60%,
+                    rgba(150, 210, 255, 0.7),
+                    transparent 60%);
             opacity: 0;
         }
 
@@ -411,7 +777,9 @@
             }
         }
 
-        /* ========== PARTICLE CANVASES ========== */
+        /* =========================================================
+           PARTICLES
+        ========================================================= */
 
         #bg-particles,
         #cursor-particles {
@@ -420,612 +788,1846 @@
             pointer-events: none;
         }
 
-        /* Hide custom canvas cursor; use normal browser cursor instead. */
-        #cursor-particles {
-            display: none;
-        }
-
         #bg-particles {
             z-index: -1;
-            /* behind content */
         }
-        #contact {
-    position: relative;
-    z-index: 5000;
-}
-       #cursor-particles {
+
+        #cursor-particles {
+            display: none;
             z-index: 100;
         }
 
-        /* ====== RESPONSIVE ====== */
+        /* =========================================================
+           FOOTER
+        ========================================================= */
 
-        @media(max-width:768px) {
+        footer {
+            text-align: center;
+            padding: 35px 10px;
+            color: #888;
+            border-top: 1px solid rgba(255, 0, 60, 0.3);
+            margin-top: 30px;
+        }
 
-    body {
-        background-attachment: scroll;   /* mobile pe fixed background issue fix */
-    }
+        footer strong {
+            color: #ff003c;
+        }
 
-    .super-grid {
-        grid-template-columns: 1fr;  /* ek row me ek card */
-        gap: 15px;
-    }
+        /* =========================================================
+           RESPONSIVE
+        ========================================================= */
 
-    .super-card {
-        font-size: 16px;
-        min-height: 110px;
-        padding: 15px;
-    }
+        @media (max-width: 768px) {
 
-    .nav-buttons {
-        right: 10px;
-        bottom: 20px;
-    }
+            body {
+                background-attachment: scroll;
+            }
 
-    .nav-buttons button {
-        font-size: 16px;
-        padding: 6px 8px;
-    }
+            .main-content {
+                padding: 35px 5vw;
+            }
 
-    .origin-img img {
-        width: 260px;
-        height: 360px;
-    }
+            .section {
+                margin-bottom: 60px;
+            }
 
-    .origin-content {
-        gap: 20px;
-    }
+            .origin-content {
+                flex-direction: column;
+            }
 
-    .origin-text {
-        width: 100%;
-    }
-    @media (min-width: 769px) and (max-width: 1024px) {
-    .super-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}        
-}
+            .origin-img img {
+                width: 260px;
+                height: 360px;
+            }
+
+            .origin-text {
+                width: 100%;
+                padding: 20px;
+                font-size: 15px;
+            }
+
+            .project-grid,
+            .skill-grid,
+            .certificate-grid,
+            .contact-grid,
+            .activity-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .score-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .score-main {
+                font-size: 28px;
+            }
+
+            .internship-card {
+                padding: 22px;
+            }
+
+            .course-list {
+                padding: 25px;
+            }
+
+            .nav-buttons {
+                right: 10px;
+                bottom: 20px;
+            }
+
+            .nav-buttons button {
+                width: 40px;
+                height: 40px;
+                font-size: 17px;
+            }
+
+            .section h2 {
+                font-size: 30px;
+            }
+        }
+
+        @media (min-width: 769px) and (max-width: 1024px) {
+
+            .main-content {
+                padding: 40px 5vw;
+            }
+
+            .project-grid,
+            .skill-grid,
+            .certificate-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
     </style>
 </head>
 
 <body>
 
-    <!-- BACKGROUND CONSTELLATION CANVAS -->
-    <canvas id="bg-particles"></canvas>
+    <!-- =========================================================
+         BACKGROUND
+    ========================================================= -->
 
-    <!-- DEMOGORGON CURSOR CANVAS -->
+    <canvas id="bg-particles"></canvas>
     <canvas id="cursor-particles"></canvas>
 
     <!-- MUSIC -->
     <audio id="bg-music" src="running_up_that_hill.mp3" loop></audio>
-    <!-- THUNDER SOUND -->
+
+    <!-- THUNDER -->
     <audio id="thunder-sound" src="thunder.mp3"></audio>
 
-    <!-- THUNDER LIGHT OVERLAY -->
     <div id="thunder-overlay"></div>
 
-    <!-- CURTAIN -->
+    <!-- =========================================================
+         CURTAIN
+    ========================================================= -->
+
     <div class="curtain-container" id="curtain">
         <div class="curtain left"></div>
         <div class="curtain right"></div>
     </div>
 
-    <!-- WELCOME SCREEN -->
+    <!-- =========================================================
+         WELCOME
+    ========================================================= -->
+
     <div class="welcome-text" id="welcome">
+
         <h1>Welcome to Yashika's Portfolio</h1>
-        <button class="enter-btn" onclick="openCurtain()">ENTER</button>
+
+        <p>
+            Frontend Developer | BCA Cyber Security | Creative Web Developer
+        </p>
+
+        <button class="enter-btn" onclick="openCurtain()">
+            ENTER
+        </button>
+
     </div>
 
-    <!-- MAIN PORTFOLIO -->
+    <!-- =========================================================
+         MAIN PORTFOLIO
+    ========================================================= -->
+
     <div class="main-content" id="main">
 
-        <!-- ABOUT / ORIGIN -->
+        <!-- =====================================================
+             ABOUT
+        ====================================================== -->
+
         <div class="section origin-section" id="about">
+
             <h1>YASHIKA'S PORTFOLIO</h1>
 
             <div class="origin-content">
+
                 <div class="origin-img">
-                    <img src="Gemini_Generated_Image_z3wsjpz3wsjpz3ws.png" alt="Yashika Photo">
+                    <img src="Gemini_Generated_Image_z3wsjpz3wsjpz3ws.png"
+                        alt="Yashika Mahawar">
                 </div>
 
                 <div class="origin-text">
+
                     <p>
-                        Hello, I’m <strong>Yashika Mahawar</strong>, a passionate and dedicated
-                        Frontend Developer with a strong enthusiasm for crafting creative, responsive,
-                        and user-friendly web experiences. I enjoy transforming ideas into visually
-                        appealing and interactive digital interfaces that not only look great but also
-                        provide seamless functionality.
-                        <br><br>
-                        With a keen eye for design and a solid understanding of modern web technologies,
-                        I focus on building clean, efficient, and scalable solutions. I am constantly
-                        exploring new tools, frameworks, and industry trends to enhance my skills and
-                        deliver high-quality work. My goal is to create engaging web experiences that
-                        leave a lasting impression while ensuring performance, accessibility, and
-                        usability at every step.
+                        Hello, I'm <strong>Yashika Mahawar</strong>, a passionate
+                        Frontend Developer and BCA Cyber Security student at
+                        <strong>ICFAI University Jaipur</strong>.
                     </p>
+
+                    <br>
+
+                    <p>
+                        I enjoy building creative, responsive and user-friendly
+                        web experiences using modern technologies such as
+                        HTML, CSS, JavaScript and React.js.
+                    </p>
+
+                    <br>
+
+                    <p>
+                        Along with frontend development, I have experience with
+                        backend technologies including Node.js, Express.js,
+                        REST APIs and databases such as MySQL, MongoDB and
+                        PostgreSQL/Supabase.
+                    </p>
+
+                    <br>
+
+                    <p>
+                        I am interested in solving problems, learning new
+                        technologies and transforming ideas into interactive
+                        digital experiences.
+                    </p>
+
                 </div>
+
             </div>
+
         </div>
 
-        <!-- RESUME SUMMARY -->
-        <div class="section super-section" id="resume">
+
+        <!-- =====================================================
+             INTRODUCTION
+        ====================================================== -->
+
+        <div class="section" id="introduction">
+
             <h2>INTRODUCTION</h2>
-            <div class="origin-text" style="max-width:900px;margin:0 auto;">
-                <p><strong>Name:</strong> Yashika Mahawar</p>
-                <p><strong>Degree:</strong> Bachelor of Computer Applications (Cyber Security)</p>
-                <p><strong>Institute:</strong> ICFAI University Jaipur</p>
-                <p><strong>Phone:</strong> +91-6376253939</p>
-                <p><strong>Email:</strong> <a href="mailto:yashikamahawar1805@gmail.com">yashikamahawar1805@gmail.com</a></p>
-                <p><strong>GitHub:</strong>
-                    <a class="intro-link" href="https://github.com/yashika-mahawar" target="_blank" rel="noopener noreferrer">View GitHub</a>
+
+            <div class="info-card content-card">
+
+                <p>
+                    <strong>Name:</strong> Yashika Mahawar
                 </p>
-                <p><strong>LinkedIn:</strong>
-                    <a class="intro-link" href="https://www.linkedin.com/in/yashika-mahawar-0810a2315/" target="_blank" rel="noopener noreferrer">View LinkedIn</a>
+
+                <p>
+                    <strong>Degree:</strong>
+                    Bachelor of Computer Applications (Cyber Security)
                 </p>
+
+                <p>
+                    <strong>Institute:</strong>
+                    ICFAI University Jaipur, Rajasthan
+                </p>
+
+                <p>
+                    <strong>Location:</strong>
+                    Jaipur, Rajasthan
+                </p>
+
+                <p>
+                    <strong>Phone:</strong>
+                    +91-6376253939
+                </p>
+
+                <p>
+                    <strong>Email:</strong>
+                    <a href="mailto:yashikamahawar1805@gmail.com">
+                        yashikamahawar1805@gmail.com
+                    </a>
+                </p>
+
+                <p>
+                    <strong>GitHub:</strong>
+                    <a class="intro-link"
+                        href="https://github.com/yashika-mahawar"
+                        target="_blank"
+                        rel="noopener noreferrer">
+                        View GitHub
+                    </a>
+                </p>
+
+                <p>
+                    <strong>LinkedIn:</strong>
+                    <a class="intro-link"
+                        href="https://www.linkedin.com/in/yashika-mahawar-0810a2315"
+                        target="_blank"
+                        rel="noopener noreferrer">
+                        View LinkedIn
+                    </a>
+                </p>
+
             </div>
+
         </div>
 
-        <!-- EDUCATION -->
-        <div class="section super-section" id="education">
+
+        <!-- =====================================================
+             EDUCATION
+        ====================================================== -->
+
+        <div class="section" id="education">
+
             <h2>EDUCATION</h2>
-            <div class="origin-text" style="max-width:900px;margin:0 auto;overflow-x:auto;">
-                <table class="edu-table">
-                    <thead>
-                        <tr>
-                            <th>Year</th>
-                            <th>Degree/Certificate</th>
-                            <th>Institute</th>
-                            <th>CGPA/Percentage</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>2024-present</td>
-                            <td>BCA (Cyber Security)</td>
-                            <td>ICFAI University Jaipur</td>
-                            <td>8.87 CGPA</td>
-                        </tr>
-                        <tr>
-                            <td>2021</td>
-                            <td>RBSE (XII)</td>
-                            <td>Royal International School</td>
-                            <td>96.8%</td>
-                        </tr>
-                        <tr>
-                            <td>2019</td>
-                            <td>RBSE (X)</td>
-                            <td>Royal International School</td>
-                            <td>84.4%</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
 
-        <!-- DETAILED PROJECTS -->
-        <div class="section super-section" id="detailed-projects">
-            <h2>DETAILED PROJECTS</h2>
-            <div class="origin-text" style="max-width:900px;margin:0 auto;">
-                <h3 style="color:#ff003c;margin-bottom:6px;">NovaWeb Website <span style="font-weight:normal;color:#f5f5f5;">| Personal Project</span></h3>
-                <p style="margin-bottom:12px;">Responsive multi-page website showcasing modern web layouts and UI components.</p>
+            <div class="origin-text content-card">
 
-                <h3 style="color:#ff003c;margin-bottom:6px;">UrbanCart Website <span style="font-weight:normal;color:#f5f5f5;">| Personal Project</span></h3>
-                <p style="margin-bottom:12px;">Basic e-commerce front-end with product listings, cart UI, and responsive design.</p>
+                <div class="edu-table-wrapper">
 
-                <h3 style="color:#ff003c;margin-bottom:6px;">To-Do List <span style="font-weight:normal;color:#f5f5f5;">| Personal Project</span></h3>
-                <p style="margin-bottom:12px;">Task management web app with add, delete, and mark-as-done functionality.</p>
+                    <table class="edu-table">
 
-                <h3 style="color:#ff003c;margin-bottom:6px;">Spotify &amp; Amazon Clone <span style="font-weight:normal;color:#f5f5f5;">| Personal Project</span></h3>
-                <p style="margin-bottom:12px;">UI clones recreating core pages and layouts of Spotify and Amazon for practice.</p>
+                        <thead>
 
-                <h3 style="color:#ff003c;margin-bottom:6px;">Cafe Website <span style="font-weight:normal;color:#f5f5f5;">| Personal Project</span></h3>
-                <p style="margin-bottom:12px;">Landing page for a cafe with menu section, gallery, and contact information.</p>
+                            <tr>
+                                <th>Year</th>
+                                <th>Degree / Certificate</th>
+                                <th>Institute</th>
+                                <th>CGPA / Percentage</th>
+                            </tr>
 
-                <h3 style="color:#ff003c;margin-bottom:6px;">Difference Between Linked List and Array (DSA Study) <span style="font-weight:normal;color:#f5f5f5;">| Academic Concept Project</span></h3>
-                <p style="margin-bottom:12px;">Analysed and documented key differences in memory allocation, operations, and use cases.</p>
+                        </thead>
 
-                <h3 style="color:#ff003c;margin-bottom:6px;">Image Steganography Using LSB Technique <span style="font-weight:normal;color:#f5f5f5;">| Python Project</span></h3>
-                <p style="margin-bottom:12px;">Implemented Least Significant Bit (LSB) steganography in Python to hide secret messages inside images.</p>
+                        <tbody>
 
-                <h3 style="color:#ff003c;margin-bottom:6px;">Python Mini Project: Calculator with Loop <span style="font-weight:normal;color:#f5f5f5;">| Python Project</span></h3>
-                <p style="margin-bottom:12px;">Built a console-based calculator using loops to perform continuous arithmetic operations.</p>
+                            <tr>
+                                <td>2024 - Present</td>
+                                <td>BCA - Cyber Security</td>
+                                <td>ICFAI University Jaipur</td>
+                                <td><strong>8.80 CGPA</strong></td>
+                            </tr>
 
-                <h3 style="color:#ff003c;margin-bottom:6px;">Advanced Password Strength Analyzer <span style="font-weight:normal;color:#f5f5f5;">| Python Project with GUI</span></h3>
-                <p>Created a GUI-based tool in Python to evaluate password strength using length, character variety, and pattern checks.</p>
-            </div>
-        </div>
+                            <tr>
+                                <td>2021</td>
+                                <td>RBSE (XII)</td>
+                                <td>Royal International School</td>
+                                <td><strong>96.80%</strong></td>
+                            </tr>
 
-        <!-- TECHNICAL SKILLS (DETAILED) -->
-        <div class="section super-section" id="tech-skills">
-            <h2>TECHNICAL SKILLS</h2>
-            <div class="origin-text" style="max-width:900px;margin:0 auto;">
-                <p><strong>Programming:</strong> C, C++, Python, Java, HTML, CSS, JavaScript</p>
-                <p><strong>Tools &amp; Platforms:</strong> VS Code, Git, GitHub, Cursor, Figma, npm, Microsoft Azure</p>
-                <p><strong>Databases:</strong> MySQL, MongoDB</p>
-                <p><strong>Operating Systems:</strong> Windows, Linux</p>
-            </div>
-        </div>
+                            <tr>
+                                <td>2019</td>
+                                <td>RBSE (X)</td>
+                                <td>Royal International School</td>
+                                <td><strong>82.33%</strong></td>
+                            </tr>
 
-        <!-- KEY COURSES -->
-        <div class="section super-section" id="courses">
-            <h2>KEY COURSES TAKEN</h2>
-            <div class="origin-text" style="max-width:900px;margin:0 auto;">
-                <ul style="margin-left:18px;line-height:1.8;">
-                    <li>Design and Analysis of Algorithms</li>
-                    <li>Frontend Development</li>
-                    <li>Backend Development</li>
-                    <li>Database Management Systems</li>
-                    <li>Operating Systems</li>
-                    <li>Computer Networks</li>
-                    <li>Full Stack Web Development</li>
-                    <li>Cybersecurity Basics</li>
-                </ul>
-            </div>
-        </div>
+                        </tbody>
 
-        <!-- SKILLS -->
-        <div class="section super-section" id="skills">
-            <h2>SKILLS</h2>
+                    </table>
 
-            <div class="super-grid">
-                <div class="super-card">HTML5</div>
-                <div class="super-card">CSS3 &amp; Animations</div>
-                <div class="super-card">JavaScript</div>
-                <div class="super-card">React</div>
-            </div>
-        </div>
-
-        <!-- CERTIFICATES -->
-        <div class="section super-section" id="certificates">
-            <h2>CERTIFICATES</h2>
-            <div class="super-grid">
-                <div class="super-card">Full Stack Web Development</div>
-                <div class="super-card">Microsoft Azure</div>
-                <div class="super-card">DSA with Python</div>
-                <div class="super-card">Placement Training by Linux World</div>
-                <div class="super-card">EY Microsoft AI Skills Passport</div>
-                <div class="super-card">HTML</div>
-                <div class="super-card">CSS</div>
-            </div>
-        </div>
-
-        <!-- PROJECTS -->
-        <div class="section super-section" id="projects">
-            <h2>PROJECTS</h2>
-            <div class="super-grid">
-                <div class="super-card">☕ Friends Cafe Website</div>
-                <div class="super-card">JS Animations</div>
-                <div class="super-card">DSA Practice</div>
-                <div class="super-card">More spooky projects coming soon…</div>
-            </div>
-        </div>
-
-        <!-- CONTACT -->
-        <div class="section super-section" id="contact">
-            <h2>CONTACT</h2>
-            <div class="super-grid">
-                <div class="super-card">📧 yashikamahawar1805@gmail.com</div>
-                <div>
-                   <a href="https://www.linkedin.com/in/yashika-mahawar-0810a2315/" 
-   target="_blank" 
-   rel="noopener noreferrer"
-   class="super-card"
-   style="text-decoration:none;">
-   🔗 LinkedIn Profile
-</a>
                 </div>
+
             </div>
+
         </div>
 
-        <!-- NAV BUTTONS -->
-        <div class="nav-buttons">
-            <button onclick="scrollUp()">⬆</button>
-            <button onclick="scrollDown()">⬇</button>
+
+        <!-- =====================================================
+             INTERNSHIP
+        ====================================================== -->
+
+        <div class="section" id="internship">
+
+            <h2>INTERNSHIP EXPERIENCE</h2>
+
+            <div class="internship-card">
+
+                <div class="internship-header">
+
+                    <div>
+                        <h3>MERN Stack Development Intern</h3>
+
+                        <h4>
+                            True Value Infosoft | Jaipur
+                        </h4>
+                    </div>
+
+                    <div class="date">
+                        May 2026 - July 2026
+                    </div>
+
+                </div>
+
+                <ul>
+
+                    <li>
+                        Developed a full-stack
+                        <strong>TVI Training Module & Certification Platform</strong>
+                        using React.js, Node.js, Express.js, Supabase and REST APIs.
+                    </li>
+
+                    <li>
+                        Built responsive
+                        <strong>Student and Admin Dashboards</strong>
+                        with authentication, course management, enrollment,
+                        progress tracking, notifications and payment functionality.
+                    </li>
+
+                    <li>
+                        Designed and integrated RESTful APIs for authentication,
+                        courses, enrollments, progress tracking, activities,
+                        notifications and administrative operations.
+                    </li>
+
+                    <li>
+                        Implemented database-driven features using
+                        <strong>Supabase/PostgreSQL</strong> and integrated
+                        frontend and backend services using Axios.
+                    </li>
+
+                    <li>
+                        Deployed the application using
+                        <strong>Render</strong> and managed the development
+                        workflow using Git and GitHub.
+                    </li>
+
+                </ul>
+
+                <a class="live-btn"
+                    href="https://lms-frontend-xmbw.onrender.com/"
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    🚀 View Live Project
+                </a>
+
+            </div>
+
         </div>
+
+
+        <!-- =====================================================
+             TCS NQT
+        ====================================================== -->
+
+        <div class="section" id="test-scores">
+
+            <h2>TEST SCORES</h2>
+
+            <div class="score-card">
+
+                <h3>
+                    TCS iON National Qualifier Test (NQT) - IT
+                </h3>
+
+                <div class="score-main">
+                    Overall Score: 56.59%
+                </div>
+
+                <div class="score-grid">
+
+                    <div class="score-item">
+
+                        <strong>60.62%</strong>
+
+                        <span>
+                            Cognitive
+                        </span>
+
+                    </div>
+
+                    <div class="score-item">
+
+                        <strong>53.91%</strong>
+
+                        <span>
+                            Programming
+                        </span>
+
+                    </div>
+
+                    <div class="score-item">
+
+                        <strong>47.17%</strong>
+
+                        <span>
+                            Advanced Quant & Reasoning
+                        </span>
+
+                    </div>
+
+                </div>
+
+                <p style="margin-top:20px;color:#aaa;">
+                    June 2026
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- =====================================================
+             PROJECTS
+        ====================================================== -->
+
+        <div class="section" id="projects">
+
+            <h2>PROJECTS</h2>
+
+            <div class="project-grid">
+
+                <!-- TVI -->
+
+                <div class="project-card">
+
+                    <h3>
+                        TVI Training Module & Certification
+                    </h3>
+
+                    <div class="project-tech">
+                        React.js | Node.js | Express.js | Supabase
+                    </div>
+
+                    <p>
+                        Developed a MERN-stack inspired training and
+                        certification platform during internship to manage
+                        training activities, learning modules and user
+                        interactions. Implemented responsive React.js
+                        interfaces, RESTful APIs and Supabase database
+                        integration.
+                    </p>
+
+                    <a class="live-btn"
+                        href="https://lms-frontend-xmbw.onrender.com/"
+                        target="_blank"
+                        rel="noopener noreferrer">
+                        🔗 Live Project
+                    </a>
+
+                </div>
+
+
+                <!-- SMART SCRAPE -->
+
+                <div class="project-card">
+
+                    <h3>
+                        SmartScrape Pro - Interactive Web Scraper
+                    </h3>
+
+                    <div class="project-tech">
+                        Java | Swing | Jsoup
+                    </div>
+
+                    <p>
+                        Developed an interactive Java-based web scraping
+                        application using Java Swing and Jsoup to extract
+                        quotes and author details from websites and display
+                        them in a structured JTable. Implemented author
+                        search, TXT export, status notifications and
+                        error handling.
+                    </p>
+
+                    <a class="live-btn"
+                        href="https://webscrapergui-production.up.railway.app/"
+                        target="_blank"
+                        rel="noopener noreferrer">
+                        🔗 Live Project
+                    </a>
+
+                </div>
+
+
+                <!-- STEGANOGRAPHY -->
+
+                <div class="project-card">
+
+                    <h3>
+                        Image Steganography
+                    </h3>
+
+                    <div class="project-tech">
+                        Python
+                    </div>
+
+                    <p>
+                        Implemented the Least Significant Bit (LSB)
+                        technique to hide secret messages inside images.
+                        The project demonstrates basic information hiding
+                        and image-based data security concepts.
+                    </p>
+
+                    <a class="live-btn"
+                        href="https://medium.com/@yashikamahawar1805/image-steganography-using-lsb-technique-in-python-f2fe7cccc49f"
+                        target="_blank"
+                        rel="noopener noreferrer">
+                        📝 Read Blog
+                    </a>
+
+                </div>
+
+
+                <!-- PORTFOLIO -->
+
+                <div class="project-card">
+
+                    <h3>
+                        Stranger Things Portfolio
+                    </h3>
+
+                    <div class="project-tech">
+                        HTML | CSS | JavaScript
+                    </div>
+
+                    <p>
+                        Built a creative responsive portfolio website inspired
+                        by the Stranger Things theme with curtain transitions,
+                        background particles, thunder effects, music,
+                        animations and interactive UI elements.
+                    </p>
+
+                    <a class="live-btn"
+                        href="https://yashika-mahawar.github.io/portfolio/"
+                        target="_blank"
+                        rel="noopener noreferrer">
+                        🌐 Live Portfolio
+                    </a>
+
+                </div>
+
+
+                <!-- NOVAWEB -->
+
+                <div class="project-card">
+
+                    <h3>
+                        NovaWeb
+                    </h3>
+
+                    <div class="project-tech">
+                        HTML | CSS | JavaScript
+                    </div>
+
+                    <p>
+                        Developed a responsive multi-page website for a
+                        modern web agency concept using reusable layouts,
+                        responsive sections and interactive UI components.
+                    </p>
+
+                    <a class="live-btn"
+                        href="https://yashika-mahawar.github.io/NOVA-WEB-AGENCY/"
+                        target="_blank"
+                        rel="noopener noreferrer">
+                        🔗 Live Project
+                    </a>
+
+                </div>
+
+
+                <!-- URBANCART -->
+
+                <div class="project-card">
+
+                    <h3>
+                        UrbanCart
+                    </h3>
+
+                    <div class="project-tech">
+                        HTML | CSS | JavaScript
+                    </div>
+
+                    <p>
+                        Developed a responsive e-commerce frontend with
+                        product listings, shopping cart UI and modern
+                        responsive layouts.
+                    </p>
+
+                    <a class="live-btn"
+                        href="https://yashika-mahawar.github.io/UrbanCart/"
+                        target="_blank"
+                        rel="noopener noreferrer">
+                        🔗 Live Project
+                    </a>
+
+                </div>
+
+
+                <!-- SPOTIFY AMAZON -->
+
+                <div class="project-card">
+
+                    <h3>
+                        Spotify & Amazon Clones
+                    </h3>
+
+                    <div class="project-tech">
+                        HTML | CSS | JavaScript
+                    </div>
+
+                    <p>
+                        Recreated core UI pages and layouts inspired by
+                        Spotify and Amazon to practice frontend development,
+                        responsive design and modern UI implementation.
+                    </p>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+        <!-- =====================================================
+             TECHNICAL SKILLS
+        ====================================================== -->
+
+        <div class="section" id="skills">
+
+            <h2>TECHNICAL SKILLS</h2>
+
+            <div class="skill-grid">
+
+                <div class="skill-card">
+
+                    <h3>Programming Languages</h3>
+
+                    <p>
+                        Java<br>
+                        C<br>
+                        C++<br>
+                        Python<br>
+                        JavaScript
+                    </p>
+
+                </div>
+
+
+                <div class="skill-card">
+
+                    <h3>Core CS</h3>
+
+                    <p>
+                        Data Structures & Algorithms<br>
+                        OOP<br>
+                        DBMS<br>
+                        Operating Systems<br>
+                        Computer Networks
+                    </p>
+
+                </div>
+
+
+                <div class="skill-card">
+
+                    <h3>Frontend</h3>
+
+                    <p>
+                        HTML<br>
+                        CSS<br>
+                        JavaScript<br>
+                        React.js
+                    </p>
+
+                </div>
+
+
+                <div class="skill-card">
+
+                    <h3>Backend</h3>
+
+                    <p>
+                        Node.js<br>
+                        Express.js<br>
+                        REST APIs<br>
+                        Spring Boot
+                    </p>
+
+                </div>
+
+
+                <div class="skill-card">
+
+                    <h3>Databases</h3>
+
+                    <p>
+                        MySQL<br>
+                        MongoDB<br>
+                        PostgreSQL<br>
+                        Supabase
+                    </p>
+
+                </div>
+
+
+                <div class="skill-card">
+
+                    <h3>Tools & Platforms</h3>
+
+                    <p>
+                        Git<br>
+                        GitHub<br>
+                        VS Code<br>
+                        IntelliJ IDEA<br>
+                        Postman<br>
+                        npm<br>
+                        Microsoft Azure
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =====================================================
+             KEY COURSES
+        ====================================================== -->
+
+        <div class="section" id="courses">
+
+            <h2>KEY COURSES</h2>
+
+            <ul class="course-list">
+
+                <li>
+                    Design and Analysis of Algorithms
+                </li>
+
+                <li>
+                    Frontend Development
+                </li>
+
+                <li>
+                    Backend Development
+                </li>
+
+                <li>
+                    Database Management Systems
+                </li>
+
+                <li>
+                    Operating Systems
+                </li>
+
+                <li>
+                    Computer Networks
+                </li>
+
+                <li>
+                    Full Stack Web Development
+                </li>
+
+                <li>
+                    Cybersecurity Basics
+                </li>
+
+            </ul>
+
+        </div>
+
+
+        <!-- =====================================================
+             CERTIFICATIONS
+        ====================================================== -->
+
+        <div class="section" id="certificates">
+
+            <h2>CERTIFICATIONS</h2>
+
+            <div class="certificate-grid">
+
+                <div class="certificate-card">
+
+                    <h3>
+                        Modern Indian Writing in Translation
+                    </h3>
+
+                    <p>
+                        NPTEL Online Certification | 2026
+                    </p>
+
+                </div>
+
+
+                <div class="certificate-card">
+
+                    <h3>
+                        Full Stack Web Development
+                    </h3>
+
+                    <p>
+                        LinkedIn Learning | 2025
+                    </p>
+
+                </div>
+
+
+                <div class="certificate-card">
+
+                    <h3>
+                        EY Microsoft AI Skills Passport
+                    </h3>
+
+                    <p>
+                        EY & Microsoft | 2025
+                    </p>
+
+                </div>
+
+
+                <div class="certificate-card">
+
+                    <h3>
+                        DSA with Python
+                    </h3>
+
+                    <p>
+                        EY & Microsoft | 2025
+                    </p>
+
+                </div>
+
+
+                <div class="certificate-card">
+
+                    <h3>
+                        Microsoft Certified: Azure Fundamentals
+                    </h3>
+
+                    <p>
+                        AZ-900 | Microsoft | 2025
+                    </p>
+
+                </div>
+
+
+                <div class="certificate-card">
+
+                    <h3>
+                        Git & DevOps Foundations
+                    </h3>
+
+                    <p>
+                        LinkedIn Learning | 2025
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =====================================================
+             EXTRACURRICULAR
+        ====================================================== -->
+
+        <div class="section" id="leadership">
+
+            <h2>EXTRACURRICULARS & LEADERSHIP</h2>
+
+            <div class="activity-grid">
+
+                <div class="activity-card">
+
+                    <h3>Entrepreneurship</h3>
+
+                    <p>
+                        Led the entrepreneurship course project.
+                    </p>
+
+                </div>
+
+
+                <div class="activity-card">
+
+                    <h3>Coding Club</h3>
+
+                    <p>
+                        Member of the university coding club.
+                    </p>
+
+                </div>
+
+
+                <div class="activity-card">
+
+                    <h3>Quiz Competition</h3>
+
+                    <p>
+                        Participated in university-level Quiz competition.
+                    </p>
+
+                </div>
+
+
+                <div class="activity-card">
+
+                    <h3>Rangoli Competition</h3>
+
+                    <p>
+                        Participated in university-level Rangoli Making
+                        competition.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =====================================================
+             CONTACT
+        ====================================================== -->
+
+        <div class="section" id="contact">
+
+            <h2>CONTACT</h2>
+
+            <div class="contact-grid">
+
+                <div class="contact-card">
+
+                    <h3>📧 Email</h3>
+
+                    <p>
+                        <a href="mailto:yashikamahawar1805@gmail.com">
+                            yashikamahawar1805@gmail.com
+                        </a>
+                    </p>
+
+                </div>
+
+
+                <div class="contact-card">
+
+                    <h3>📱 Phone</h3>
+
+                    <p>
+                        +91-6376253939
+                    </p>
+
+                </div>
+
+
+                <div class="contact-card">
+
+                    <h3>💼 LinkedIn</h3>
+
+                    <p>
+                        <a href="https://www.linkedin.com/in/yashika-mahawar-0810a2315"
+                            target="_blank"
+                            rel="noopener noreferrer">
+                            LinkedIn Profile
+                        </a>
+                    </p>
+
+                </div>
+
+
+                <div class="contact-card">
+
+                    <h3>💻 GitHub</h3>
+
+                    <p>
+                        <a href="https://github.com/yashika-mahawar"
+                            target="_blank"
+                            rel="noopener noreferrer">
+                            GitHub Profile
+                        </a>
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =====================================================
+             NAVIGATION
+        ====================================================== -->
+
+        <div class="nav-buttons">
+
+            <button onclick="scrollUp()" title="Scroll Up">
+                ⬆
+            </button>
+
+            <button onclick="scrollDown()" title="Scroll Down">
+                ⬇
+            </button>
+
+        </div>
+
+
+        <!-- =====================================================
+             FOOTER
+        ====================================================== -->
+
+        <footer>
+
+            <p>
+                Designed & Developed by
+                <strong>Yashika Mahawar</strong>
+            </p>
+
+            <p style="margin-top:8px;">
+                Frontend Developer | BCA Cyber Security
+            </p>
+
+        </footer>
 
     </div>
 
+
+    <!-- =========================================================
+         JAVASCRIPT
+    ========================================================= -->
+
     <script>
-        /* ================= UPSIDE-DOWN TOGGLE ================= */
+
+        /* =====================================================
+           UPSIDE DOWN THEME
+        ====================================================== */
 
         document.addEventListener("dblclick", () => {
+
             document.body.classList.toggle("upside");
+
         });
 
-        /* ================= CURTAIN + MUSIC ================= */
+
+        /* =====================================================
+           CURTAIN + MUSIC
+        ====================================================== */
 
         function openCurtain() {
+
             const music = document.getElementById("bg-music");
+
             if (music) {
+
                 music.volume = 0.5;
-                music.play().catch(err => console.warn("Autoplay blocked:", err));
+
+                music.play().catch(err => {
+                    console.warn("Autoplay blocked:", err);
+                });
+
             }
 
-            const curtain = document.getElementById("curtain");
-            const welcome = document.getElementById("welcome");
+            const curtain =
+                document.getElementById("curtain");
+
+            const welcome =
+                document.getElementById("welcome");
 
             curtain.classList.add("open");
+
             welcome.style.display = "none";
 
             setTimeout(() => {
+
                 document.body.classList.add("opened");
-                document.getElementById("main").classList.add("show-content");
+
+                document
+                    .getElementById("main")
+                    .classList.add("show-content");
+
                 startThunderLoop();
+
             }, 1800);
+
         }
 
-        /* ================= SCROLL BUTTONS ================= */
+
+        /* =====================================================
+           SCROLL
+        ====================================================== */
 
         function scrollDown() {
+
             window.scrollBy({
+
                 top: window.innerHeight,
-                behavior: 'smooth'
+
+                behavior: "smooth"
+
             });
+
         }
+
 
         function scrollUp() {
+
             window.scrollBy({
+
                 top: -window.innerHeight,
-                behavior: 'smooth'
+
+                behavior: "smooth"
+
             });
+
         }
 
-        /* ================= GLOBAL CURSOR POSITION ================= */
 
-        let cursorX = window.innerWidth / 2;
-        let cursorY = window.innerHeight / 2;
-        let isLinkHover = false;
+        /* =====================================================
+           CURSOR POSITION
+        ====================================================== */
+
+        let cursorX =
+            window.innerWidth / 2;
+
+        let cursorY =
+            window.innerHeight / 2;
 
         window.addEventListener("mousemove", (e) => {
+
             cursorX = e.clientX;
+
             cursorY = e.clientY;
-            const el = document.elementFromPoint(e.clientX, e.clientY);
-            isLinkHover = !!(el && el.closest && el.closest("a"));
+
         });
 
-        /* ================= THUNDER EFFECT ================= */
 
-        const thunderOverlay = document.getElementById("thunder-overlay");
-        const thunderSound = document.getElementById("thunder-sound");
+        /* =====================================================
+           THUNDER
+        ====================================================== */
+
+        const thunderOverlay =
+            document.getElementById("thunder-overlay");
+
+        const thunderSound =
+            document.getElementById("thunder-sound");
+
 
         function thunderStrike() {
-            if (!thunderOverlay) return;
+
+            if (!thunderOverlay)
+                return;
+
+            thunderOverlay.classList.remove("active");
+
+            void thunderOverlay.offsetWidth;
 
             thunderOverlay.classList.add("active");
 
+
             if (thunderSound) {
+
                 thunderSound.currentTime = 0;
+
                 thunderSound.volume = 0.9;
-                thunderSound.play().catch(() => { });
+
+                thunderSound
+                    .play()
+                    .catch(() => {});
+
             }
+
 
             setTimeout(() => {
+
                 thunderOverlay.classList.remove("active");
+
             }, 600);
+
         }
+
 
         function startThunderLoop() {
-            const minDelay = 8000;  // 8 sec
-            const maxDelay = 20000; // 20 sec
+
+            const minDelay = 8000;
+
+            const maxDelay = 20000;
+
 
             function scheduleNext() {
-                const delay = Math.random() * (maxDelay - minDelay) + minDelay;
+
+                const delay =
+                    Math.random() *
+                    (maxDelay - minDelay) +
+                    minDelay;
+
+
                 setTimeout(() => {
+
                     thunderStrike();
+
                     scheduleNext();
+
                 }, delay);
+
             }
+
 
             scheduleNext();
+
         }
 
-        /* =========================================================
-           BACKGROUND CONSTELLATION PARTICLES
-           ========================================================= */
 
-        const bgCanvas = document.getElementById("bg-particles");
-        const bgCtx = bgCanvas.getContext("2d");
+        /* =====================================================
+           BACKGROUND PARTICLES
+        ====================================================== */
+
+        const bgCanvas =
+            document.getElementById("bg-particles");
+
+        const bgCtx =
+            bgCanvas.getContext("2d");
+
 
         function resizeBgCanvas() {
-            bgCanvas.width = window.innerWidth;
-            bgCanvas.height = window.innerHeight;
+
+            bgCanvas.width =
+                window.innerWidth;
+
+            bgCanvas.height =
+                window.innerHeight;
+
         }
+
+
         resizeBgCanvas();
 
+
         window.addEventListener("resize", () => {
+
             resizeBgCanvas();
+
             resizeCursorCanvas();
+
         });
 
+
         const BG_PARTICLE_COUNT = 130;
+
         const bgParticles = [];
 
-        for (let i = 0; i < BG_PARTICLE_COUNT; i++) {
+
+        for (
+            let i = 0;
+            i < BG_PARTICLE_COUNT;
+            i++
+        ) {
+
             bgParticles.push({
-                x: Math.random() * bgCanvas.width,
-                y: Math.random() * bgCanvas.height,
-                vx: (Math.random() - 0.5) * 0.4,
-                vy: (Math.random() - 0.5) * 0.4,
-                radius: 1.2 + Math.random() * 1.2
+
+                x:
+                    Math.random() *
+                    bgCanvas.width,
+
+                y:
+                    Math.random() *
+                    bgCanvas.height,
+
+                vx:
+                    (Math.random() - 0.5) *
+                    0.4,
+
+                vy:
+                    (Math.random() - 0.5) *
+                    0.4,
+
+                radius:
+                    1.2 +
+                    Math.random() * 1.2
+
             });
+
         }
+
 
         function updateAndDrawBgParticles() {
+
             const maxDist = 140;
+
             const repelRadius = 90;
 
-            bgCtx.clearRect(0, 0, bgCanvas.width, bgCanvas.height);
 
-            // update particles
+            bgCtx.clearRect(
+                0,
+                0,
+                bgCanvas.width,
+                bgCanvas.height
+            );
+
+
             for (const p of bgParticles) {
-                // slow float
+
                 p.x += p.vx;
+
                 p.y += p.vy;
 
-                // soft bounds
-                if (p.x < 0 || p.x > bgCanvas.width) p.vx *= -1;
-                if (p.y < 0 || p.y > bgCanvas.height) p.vy *= -1;
 
-                // mouse repel
-                const dx = p.x - cursorX;
-                const dy = p.y - cursorY;
-                const dist = Math.sqrt(dx * dx + dy * dy) || 1;
+                if (
+                    p.x < 0 ||
+                    p.x > bgCanvas.width
+                ) {
+
+                    p.vx *= -1;
+
+                }
+
+
+                if (
+                    p.y < 0 ||
+                    p.y > bgCanvas.height
+                ) {
+
+                    p.vy *= -1;
+
+                }
+
+
+                const dx =
+                    p.x - cursorX;
+
+                const dy =
+                    p.y - cursorY;
+
+                const dist =
+                    Math.sqrt(
+                        dx * dx +
+                        dy * dy
+                    ) || 1;
+
+
                 if (dist < repelRadius) {
-                    const strength = (repelRadius - dist) / repelRadius * 0.4;
-                    p.x += (dx / dist) * strength * 4;
-                    p.y += (dy / dist) * strength * 4;
+
+                    const strength =
+                        (repelRadius - dist) /
+                        repelRadius *
+                        0.4;
+
+
+                    p.x +=
+                        (dx / dist) *
+                        strength *
+                        4;
+
+                    p.y +=
+                        (dy / dist) *
+                        strength *
+                        4;
+
                 }
 
-                // draw dot
+
                 bgCtx.beginPath();
-                bgCtx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-                bgCtx.fillStyle = "rgba(255,0,80,0.8)";
-                bgCtx.shadowColor = "rgba(255,0,80,1)";
+
+                bgCtx.arc(
+                    p.x,
+                    p.y,
+                    p.radius,
+                    0,
+                    Math.PI * 2
+                );
+
+                bgCtx.fillStyle =
+                    "rgba(255,0,80,0.8)";
+
+                bgCtx.shadowColor =
+                    "rgba(255,0,80,1)";
+
                 bgCtx.shadowBlur = 8;
+
                 bgCtx.fill();
+
             }
 
-            // connecting lines
+
             bgCtx.shadowBlur = 0;
-            for (let i = 0; i < bgParticles.length; i++) {
-                for (let j = i + 1; j < bgParticles.length; j++) {
-                    const a = bgParticles[i];
-                    const b = bgParticles[j];
-                    const dx = a.x - b.x;
-                    const dy = a.y - b.y;
-                    const d = Math.sqrt(dx * dx + dy * dy);
+
+
+            for (
+                let i = 0;
+                i < bgParticles.length;
+                i++
+            ) {
+
+                for (
+                    let j = i + 1;
+                    j < bgParticles.length;
+                    j++
+                ) {
+
+                    const a =
+                        bgParticles[i];
+
+                    const b =
+                        bgParticles[j];
+
+
+                    const dx =
+                        a.x - b.x;
+
+                    const dy =
+                        a.y - b.y;
+
+
+                    const d =
+                        Math.sqrt(
+                            dx * dx +
+                            dy * dy
+                        );
+
+
                     if (d < maxDist) {
-                        const alpha = 1 - d / maxDist;
+
+                        const alpha =
+                            1 - d / maxDist;
+
+
                         bgCtx.beginPath();
-                        bgCtx.moveTo(a.x, a.y);
-                        bgCtx.lineTo(b.x, b.y);
-                        bgCtx.strokeStyle = `rgba(255,0,80,${0.35 * alpha})`;
+
+                        bgCtx.moveTo(
+                            a.x,
+                            a.y
+                        );
+
+                        bgCtx.lineTo(
+                            b.x,
+                            b.y
+                        );
+
+                        bgCtx.strokeStyle =
+                            `rgba(255,0,80,${0.35 * alpha})`;
+
                         bgCtx.lineWidth = 1;
+
                         bgCtx.stroke();
+
                     }
+
                 }
+
             }
+
         }
 
-        /* =========================================================
-           DEMOGORGON CURSOR PARTICLE SHAPE
-           ========================================================= */
 
-        const cursorCanvas = document.getElementById("cursor-particles");
-        const cursorCtx = cursorCanvas.getContext("2d");
+        /* =====================================================
+           DEMOGORGON CURSOR
+        ====================================================== */
+
+        const cursorCanvas =
+            document.getElementById("cursor-particles");
+
+        const cursorCtx =
+            cursorCanvas.getContext("2d");
+
 
         function resizeCursorCanvas() {
-            cursorCanvas.width = window.innerWidth;
-            cursorCanvas.height = window.innerHeight;
+
+            cursorCanvas.width =
+                window.innerWidth;
+
+            cursorCanvas.height =
+                window.innerHeight;
+
         }
+
+
         resizeCursorCanvas();
 
+
         const CURSOR_MAX_PARTICLES = 400;
+
         const cursorParticles = [];
+
         let cursorShapeReady = false;
+
         let cursorShapeFailed = false;
 
-        // load shape from PNG alpha
-        const shapeImg = new Image();
-        shapeImg.src = "demogorgon.png";
+
+        const shapeImg =
+            new Image();
+
+        shapeImg.src =
+            "demogorgon.png";
+
 
         shapeImg.onload = () => {
-            const off = document.createElement("canvas");
-            off.width = shapeImg.width;
-            off.height = shapeImg.height;
-            const octx = off.getContext("2d");
-            octx.drawImage(shapeImg, 0, 0);
-            const imgData = octx.getImageData(0, 0, off.width, off.height).data;
 
-            const step = 5; // smaller = more detail
+            const off =
+                document.createElement("canvas");
+
+            off.width =
+                shapeImg.width;
+
+            off.height =
+                shapeImg.height;
+
+
+            const octx =
+                off.getContext("2d");
+
+
+            octx.drawImage(
+                shapeImg,
+                0,
+                0
+            );
+
+
+            const imgData =
+                octx.getImageData(
+                    0,
+                    0,
+                    off.width,
+                    off.height
+                ).data;
+
+
+            const step = 5;
+
             const points = [];
 
-            for (let y = 0; y < off.height; y += step) {
-                for (let x = 0; x < off.width; x += step) {
-                    const idx = (y * off.width + x) * 4;
-                    const alpha = imgData[idx + 3];
+
+            for (
+                let y = 0;
+                y < off.height;
+                y += step
+            ) {
+
+                for (
+                    let x = 0;
+                    x < off.width;
+                    x += step
+                ) {
+
+                    const idx =
+                        (y * off.width + x) * 4;
+
+
+                    const alpha =
+                        imgData[idx + 3];
+
+
                     if (alpha > 120) {
+
                         points.push({
-                            ox: x - off.width / 2,
-                            oy: y - off.height / 2
+
+                            ox:
+                                x -
+                                off.width / 2,
+
+                            oy:
+                                y -
+                                off.height / 2
+
                         });
+
                     }
+
                 }
+
             }
 
-            for (let i = 0; i < CURSOR_MAX_PARTICLES && i < points.length; i++) {
-                const base = points[Math.floor(Math.random() * points.length)];
+
+            for (
+                let i = 0;
+                i < CURSOR_MAX_PARTICLES &&
+                i < points.length;
+                i++
+            ) {
+
+                const base =
+                    points[
+                        Math.floor(
+                            Math.random() *
+                            points.length
+                        )
+                    ];
+
+
                 cursorParticles.push({
+
                     ox: base.ox,
+
                     oy: base.oy,
+
                     x: cursorX,
+
                     y: cursorY
+
                 });
+
             }
+
 
             cursorShapeReady = true;
+
         };
+
 
         shapeImg.onerror = () => {
+
             cursorShapeFailed = true;
+
         };
 
-        function updateAndDrawCursorParticles() {
-            cursorCtx.clearRect(0, 0, cursorCanvas.width, cursorCanvas.height);
 
-            // if image failed -> fallback glowing circle at cursor
-            if (cursorShapeFailed && !cursorShapeReady) {
+        function updateAndDrawCursorParticles() {
+
+            cursorCtx.clearRect(
+                0,
+                0,
+                cursorCanvas.width,
+                cursorCanvas.height
+            );
+
+
+            if (
+                cursorShapeFailed &&
+                !cursorShapeReady
+            ) {
+
                 cursorCtx.beginPath();
-                cursorCtx.arc(cursorX, cursorY, 10, 0, Math.PI * 2);
-                cursorCtx.fillStyle = "rgba(255,0,80,0.9)";
-                cursorCtx.shadowColor = "rgba(255,0,120,1)";
+
+                cursorCtx.arc(
+                    cursorX,
+                    cursorY,
+                    10,
+                    0,
+                    Math.PI * 2
+                );
+
+                cursorCtx.fillStyle =
+                    "rgba(255,0,80,0.9)";
+
+                cursorCtx.shadowColor =
+                    "rgba(255,0,120,1)";
+
                 cursorCtx.shadowBlur = 18;
+
                 cursorCtx.fill();
+
                 return;
+
             }
 
-            if (!cursorShapeReady) return;
+
+            if (!cursorShapeReady)
+                return;
+
 
             const scale = 0.6;
+
             const easing = 0.22;
 
+
             for (const p of cursorParticles) {
-                const targetX = cursorX + p.ox * scale;
-                const targetY = cursorY + p.oy * scale;
 
-                p.x += (targetX - p.x) * easing;
-                p.y += (targetY - p.y) * easing;
+                const targetX =
+                    cursorX +
+                    p.ox * scale;
 
-                const dx = p.x - cursorX;
-                const dy = p.y - cursorY;
-                const dist = Math.sqrt(dx * dx + dy * dy);
-                const t = Math.min(dist / 140, 1);
+                const targetY =
+                    cursorY +
+                    p.oy * scale;
+
+
+                p.x +=
+                    (targetX - p.x) *
+                    easing;
+
+                p.y +=
+                    (targetY - p.y) *
+                    easing;
+
+
+                const dx =
+                    p.x - cursorX;
+
+                const dy =
+                    p.y - cursorY;
+
+
+                const dist =
+                    Math.sqrt(
+                        dx * dx +
+                        dy * dy
+                    );
+
+
+                const t =
+                    Math.min(
+                        dist / 140,
+                        1
+                    );
+
 
                 const r = 255;
-                const g = Math.round(40 + (0 - 40) * t);
-                const b = Math.round(80 + (0 - 80) * t);
+
+                const g =
+                    Math.round(
+                        40 +
+                        (0 - 40) * t
+                    );
+
+                const b =
+                    Math.round(
+                        80 +
+                        (0 - 80) * t
+                    );
+
+
                 const alpha = 0.9;
-                const radius = 2.8 - t * 1.2;
+
+                const radius =
+                    2.8 -
+                    t * 1.2;
+
 
                 cursorCtx.beginPath();
-                cursorCtx.arc(p.x, p.y, radius, 0, Math.PI * 2);
-                cursorCtx.fillStyle = `rgba(${r},${g},${b},${alpha})`;
-                cursorCtx.shadowColor = "rgba(255,0,120,1)";
+
+                cursorCtx.arc(
+                    p.x,
+                    p.y,
+                    radius,
+                    0,
+                    Math.PI * 2
+                );
+
+                cursorCtx.fillStyle =
+                    `rgba(${r},${g},${b},${alpha})`;
+
+                cursorCtx.shadowColor =
+                    "rgba(255,0,120,1)";
+
                 cursorCtx.shadowBlur = 12;
+
                 cursorCtx.fill();
+
             }
+
         }
 
-        /* ================= MAIN ANIMATION LOOP ================= */
+
+        /* =====================================================
+           ANIMATION
+        ====================================================== */
 
         function animate() {
+
             requestAnimationFrame(animate);
+
             updateAndDrawBgParticles();
+
             updateAndDrawCursorParticles();
+
         }
 
+
         animate();
+
     </script>
 
 </body>
 
 </html>
+```
